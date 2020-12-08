@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "Sistema de Orçamentos por e-mail",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Raphael Cunha",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.5"
   }
 }
