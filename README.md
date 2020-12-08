@@ -15,4 +15,4 @@ Mongoose (Conexão com MongoDB)
 ### npm install --save mongoose
 
 MongoDB
-### npm install mongodb --save
+### npm install --save mongodb
