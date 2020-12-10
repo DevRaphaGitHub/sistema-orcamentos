@@ -13,9 +13,3 @@ Nodemon
 
 Mongoose (Conexão com MongoDB)
 ### npm install --save mongoose
-
-MongoDB
-### npm install mongodb --save
-
-Nodemailer (Envio de e-mails)
-### npm install nodemailer
