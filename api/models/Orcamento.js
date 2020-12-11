@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const orcamento = new Schema({
   name: {
-    type: String,
+    type: String
   },
   email: {
     type: String

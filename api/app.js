@@ -35,7 +35,7 @@ app.post("/orcamento", async (req, res) => {
       });
     });
 
-    var transport = nodemailer.createTransport({
+    var transporter = nodemailer.createTransport({
       host: "smtp.mailtrap.io",
       port: 2525,
       auth: {
@@ -44,32 +44,25 @@ app.post("/orcamento", async (req, res) => {
       }
     });
 
-    var emailHtml = 'Prezado(a)<br><br> Recebi a solicitação de orçamento.<br><br>Em breve será encaminhado o orçamento.<br><br>';
-    var emailTexto = 'Prezado(a)\n\n Recebi a solicitação de orçamento.\n\nEm breve será encaminhado o orçamento.\n\n';
+    var emailTexto = 'Prezado(a)\n\nRecebi a solicitação de orçamento.\n\nEm breve será encaminhado o orçamento.\n\n';
 
     var emailSendInfo = {
       from: '6e8f608201-efc6da@inbox.mailtrap.io',
       to: req.body.email,
       subject: "Recebi a solicitação de orçamento",
-      text: emailTexto,
-      textEncoding: emailHtml
+      text: emailTexto
     };
 
-    await transport.sendMail(emailSendInfo, (error) => {
+    await transporter.sendMail(emailSendInfo, (error) => {
       if (error) return res.status(400).json({
         error: true,
-        message: "Erro: Solicitação de orçamento não pode ser enviada!"
+        message: "Erro: E-mail com solicitação de orçamento não pode ser enviado!"
       });
   
       return res.json({
         error: false,
-        message: "Solicitação de orçamento enviada com sucesso!"
+        message: "E-mail com solicitação de orçamento enviado com sucesso!"
       });
-    });
-
-    return res.json({
-      error: false,
-      message: "Solicitação de orçamento enviada com sucesso!"
     });
   });
 
